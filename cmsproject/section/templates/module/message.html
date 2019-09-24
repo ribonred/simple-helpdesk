@@ -28,13 +28,14 @@
         <table class="table table-message">
             <tbody>
                 <tr class="heading">
-                    <td class="cell-check">
-                        <input type="checkbox" class="inbox-checkbox">
-                    </td>
-                    <td class="cell-icon">
-                    </td>
+                   
                     <td class="cell-author hidden-phone hidden-tablet">
                         PEMOHON
+                    </td>
+                    <td class="cell-icon">
+                        </td>
+                    <td class="cell-title">
+                        DITUJUKAN
                     </td>
                     <td class="cell-title">
                         SUBJECT
@@ -43,6 +44,7 @@
                             PRIORITAS
                         </td>
                     <td class="cell-icon hidden-phone hidden-tablet">
+                        LAMPIRAN
                     </td>
                     <td class="cell-time align-right">
                         Date
@@ -51,23 +53,23 @@
                 
                 {% for mail in mails  %} 
                 <tr {% if mail.status_terima %} class="read" {% else %} class="unread" {% endif %}> 
-                        <td class="cell-check">
-                            <input type="checkbox" class="inbox-checkbox">
-                        </td>
-                        <td class="cell-icon">
-                            <i class="icon-star"></i>
-                        </td>
                         <td class="cell-author hidden-phone hidden-tablet" >
                             <a href="{{mail.get_absolute_url}}">{{mail.sender}}</a>
                         </td>
+                        <td class="cell-icon">
+                                <i class="icon-star alert-success"></i>
+                            </td>
                         <td class="cell-title" href="{{mail.get_absolute_url}}">
-                            <a href="{{mail.get_absolute_url}}">{{mail.subject}}</a>
+                            <a href="{{mail.get_absolute_url}}">{{mail.assign_to}}</a>
+                        </td>
+                        <td class="cell-title" href="{{mail.get_absolute_url}}">
+                            <a href="{{mail.get_absolute_url}}">{{mail.title}}</a>
                         </td>
                         <td class="cell-title" href="{{mail.get_absolute_url}}">
                                 <a href="{{mail.get_absolute_url}}">{{mail.prioritas}}</a>
                             </td>
                         <td class="cell-icon hidden-phone hidden-tablet" href="{{mail.get_absolute_url}}">
-                            <i class="icon-paper-clip"></i>
+                            <i class="icon-paper-clip">{{mail.dokumen.name}}</i>
                         </td>
                         <td class="cell-time align-right">
                             {{mail.created}}

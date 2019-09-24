@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="media stream">
     <a href="#" class="media-avatar medium pull-left">
@@ -8,41 +8,26 @@
     <div class="media-body">
         <div class="stream-headline">
             <h5 class="stream-author">
-                John Donga 
-                <small>08 July, 2014</small>
+                FROM: {{mails.sender}}
+                <br>
+                <small>{{mails.created}}</small>
             </h5>
+            <h5 class="stream-author">
+                    TO: {{mails.assign_to}}
+                    <br>
+                    <small>subject: {{mails.subject}}</small>
+                </h5>
             <div class="stream-text">
-                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. 
-            
-          
-            
-            
-           
-
-            
+                 {{mails.content}}
             </div>
             <div class="stream-attachment photo">
                 <div class="responsive-photo">
-                    <img src="images/img.jpg">
+                        <iframe width='1000' height='800' src={% static "images/my-cv.pdf" %} frameborder='0' allowfullscreen></iframe>
                 </div>
             </div>
         </div><!--/.stream-headline-->
-
-        <div class="stream-options">
-            <a href="#" class="btn btn-small">
-                <i class="icon-thumbs-up shaded"></i>
-                Like
-            </a>
-            <a href="#" class="btn btn-small">
-                <i class="icon-reply shaded"></i>
-                Reply
-            </a>
-            <a href="#" class="btn btn-small">
-                <i class="icon-retweet shaded"></i>
-                Repost
-            </a>
-        </div>
     </div>
 </div> 
+
 {% endblock  %}
     
