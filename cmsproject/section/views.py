@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins  import LoginRequiredMixin
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
@@ -33,8 +33,18 @@ class Homeview(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         users = self.request.user
-        mail = Ticket.objects.filter(assign_to__username=users)
+        mail = Ticket.objects.filter(assign_to__username=users).order_by('-created')
+        if users.is_superuser:
+            mail = Ticket.objects.all().order_by('-created')
         return mail
 
-    #replace the messages_set with the appropriate related_name, and also the filter field. (I am assuming it to be "read")
+class MessageDetail(DetailView):
+    template_name = 'module/msg_detail.html'
+    model = Ticket
+    context_object_name= "mails"
+
+    def get_queryset(self):
+        obj = Ticket.objects.filter(assign_to=self.request.user)
+        obj.update(status_terima=True)
+        return obj
 

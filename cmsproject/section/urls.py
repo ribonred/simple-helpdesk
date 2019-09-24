@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import Homeview, user_login
+from .views import Homeview, user_login, MessageDetail
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', Homeview.as_view(), name='panel'),
+    path('detail/<slug:slug>', MessageDetail.as_view(), name='detailemail'),
     path('login/', user_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     # change password urls
