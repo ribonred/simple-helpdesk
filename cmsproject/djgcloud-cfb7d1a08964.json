@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "static-potion-253708",
+  "private_key_id": "113a3ce577375be41bb82d5eef5553fe6170d24b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCGCnfYNQDcSxBU\n79MnWuZLc4u9fYE7EnjuOW5tRA0KtBGO3HnCTupOJgpvMsOsY3WlX/mdIlICwi6c\n7sj3f6+urIzO4fXywQoAFOdM42eqNwwwpLTxk50n0lMT5WBXeOByiibQMNtRaWPm\nsGk5QaXLqUVnOC6jM2aKmS5bR/m3SyoSA+sIvr+WTquudc+TE3cqN6gNF0/izDkG\n1e3WrYGFc5StoSCFU4Yoc+HoeymfKVz8wUeLNeqWMdBs8l0ANvz8LtHXZzjMyDIJ\nzMPRff5hxq6ZP78rW6E3T2X40yTGfOLklNfJDYSqWiDDnj53mkDhDTiW/VT0SoxS\nWNaDVAC3AgMBAAECggEADpLVy+qbYNhCetGmdhlyf5KdB2m9YsRT5KbW5EdpWZgR\nbqR3EpLM89k7+jIdR0F7GZNxSs3f98/QDJ0DubEm00mMd7Pmr1GgujiLm3cAHugk\nSaemyrs/c4RxJvEiA/CvCpUNukYNmnDofT0B+8kw8w9A7gOUQodEp14XRbJyKqT3\nslzZI1C/zO3nt7ptDkDNrFpqtxkJ+F5FgGQGbaDnFdfvlfzwnHeWIsGrQkCoQFHm\n6A0YV5gBOXPcoWIs9WcuZRkOxxTmBdvYTxFU7faVKW/EvCaLYjkSiNtGhnv5rGDX\nxx+9AprodYCbqz120q0LLPrLq/ZxdF3DPhnQi8aNwQKBgQC6LCyom3Td0NOX2CcW\nmUyzXXNXIIz3cqTrowYNO+3p5yxVivuyNGaABM4kq+HsKj5luvCzasi6Uf/8I8qK\nZOiKPTlvsCEMd9ioD1U1brpoGhX3OmcGAU0dgqCv31bHXylg7zFgX9Jaf3aQve1H\nFBnO9QDf7lr/WbCSyrmvy7eGdwKBgQC4UL2t4S0ZmJUMMqKxQ0nrjDz5uldBH+a1\nrleeAfk/djf2S6NqWXgvSBpJbYjbaXOW2Qz5634+GZTuhZedvJ+9sr603vtnmkMe\nKedqe9vZ92Uw4SmvKrkR8c03xRMXmiUQ5YISWmn+YBhHnb+xvRLDp+Upg0iXSS6x\nH4nJhMCnwQKBgEjz4HgdmrkFCLU6xW5smgq7NuRQZAzfBtMzab6r2jnLFatbr++P\n6w6FU4Y5OGmD0Dmq/IFB+fBRC59xIwACNMFe5m/ms7ygBe0tPPWYM0Fx32OmphJL\nVj2XH4JrYST1HFDYyh96zQIbaomjcyRkMwzPIw2c6Fmheri66fKCQKNXAoGAepSo\nMbYqSnWh2uTqMr4vsUopW2TElvlidL4oY1uoqr4y5cjUO+yY88keQmtos5PkXhSo\nfqZR5XcaB7Atb6h9DKqODriltvdvX+Y6lCUfyEyyrdlx4Z+mSfroowicc/v+Xshk\nw1QCXj0GqMqPLOQ0UI+e5wb7BjKTrRTujGmPv4ECgYB2/XA4yPrfRpTYVBPuofq8\neA+PuKof+Dsd8z3sZMLaJt/IVuU0kUt/tQ2lqOXcML+edWsPwDnk5qvWhV0HjnmZ\n+rTomAmMB+dCkxAXXAjvD2Ito2pRtDJJcj1WNy1fWv3iE9ydbn1XYyFV69XvVGf4\nd0flCA7JKln/r0lWKaBpkQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "djangostorage@static-potion-253708.iam.gserviceaccount.com",
+  "client_id": "101925872768226480599",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/djangostorage%40static-potion-253708.iam.gserviceaccount.com"
+}

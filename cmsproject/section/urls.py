@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import Homeview, user_login, MessageDetail
+from .views import Homeview, user_login, MessageDetail,Compose,Sentmail
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', Homeview.as_view(), name='panel'),
+    path('sent/', Sentmail.as_view(), name='sent'),
+    path("compose/", Compose.as_view(), name="buat"),
     path('detail/<slug:slug>', MessageDetail.as_view(), name='detailemail'),
     path('login/', user_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

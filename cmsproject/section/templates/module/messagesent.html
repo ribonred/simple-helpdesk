@@ -1,0 +1,50 @@
+{% load static %}
+<div class="module message">
+    <div class="module-option clearfix">
+    <div class="module-body table">
+        <table class="table table-message">
+            <tbody>
+                <tr class="heading">
+                    <td class="cell-title">
+                        DITUJUKAN
+                    </td>
+                    <td class="cell-title">
+                        SUBJECT
+                    </td>
+                    <td class="cell-title">
+                            PRIORITAS
+                        </td>
+                    <td class="cell-icon hidden-phone hidden-tablet">
+                        LAMPIRAN
+                    </td>
+                    <td class="cell-time align-center">
+                        Date
+                    </td>
+                </tr>
+                
+                {% for mail in mails  %} 
+                <tr {% if mail.status_terima %} class="read" {% else %} class="unread" {% endif %}>
+                        <td class="cell-title">
+                            <a href="{{mail.get_absolute_url}}" id="details">{{mail.assign_to}}</a>
+                        </td>
+                        <td class="cell-title">
+                            <a href="{{mail.get_absolute_url}}" id="details">{{mail.title}}</a>
+                        </td>
+                        <td class="cell-title">
+                                <a href="{{mail.get_absolute_url}}" id="details">{{mail.prioritas}}</a>
+                            </td>
+                        <td class="cell-icon hidden-phone hidden-tablet" id="details">
+                            <i class="icon-paper-clip">{{mail.dokumen.name}}</i>
+                        </td>
+                        <td class="cell-time align-center">
+                            {{mail.created}}|{{mail.sent|date:'H:i'}}
+                        </td>
+                    </tr>
+                {% endfor %}
+                    
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,41 +1,12 @@
+{% load static %}
 <div class="module message">
-    <div class="module-head">
-        <h3>Manajemen Pengajuan</h3>
-    </div>
     <div class="module-option clearfix">
-        <div class="pull-left">
-            <div class="btn-group">
-                <button class="btn">
-                    Inbox</button>
-                <button class="btn dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="/">Inbox(20)</a></li>
-                    <li><a href="#">Sent</a></li>
-                    <li><a href="#">Draft(2)</a></li>
-                    <li><a href="#">Trash</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="pull-right">
-            <a href="#" class="btn btn-primary">Compose</a>
-        </div>
-    </div>
     <div class="module-body table">
         <table class="table table-message">
             <tbody>
                 <tr class="heading">
-                   
-                    <td class="cell-author hidden-phone hidden-tablet">
-                        PEMOHON
-                    </td>
-                    <td class="cell-icon">
-                        </td>
                     <td class="cell-title">
-                        DITUJUKAN
+                        PEMOHON
                     </td>
                     <td class="cell-title">
                         SUBJECT
@@ -46,33 +17,27 @@
                     <td class="cell-icon hidden-phone hidden-tablet">
                         LAMPIRAN
                     </td>
-                    <td class="cell-time align-right">
+                    <td class="cell-time align-center">
                         Date
                     </td>
                 </tr>
                 
                 {% for mail in mails  %} 
-                <tr {% if mail.status_terima %} class="read" {% else %} class="unread" {% endif %}> 
-                        <td class="cell-author hidden-phone hidden-tablet" >
-                            <a href="{{mail.get_absolute_url}}">{{mail.sender}}</a>
+                <tr {% if mail.status_terima %} class="read" {% else %} class="unread" {% endif %}>
+                        <td class="cell-title">
+                            <a href="{{mail.get_absolute_url}}" id="details">{{mail.Sender}}</a>
                         </td>
-                        <td class="cell-icon">
-                                <i class="icon-star alert-success"></i>
+                        <td class="cell-title">
+                            <a href="{{mail.get_absolute_url}}" id="details">{{mail.title}}</a>
+                        </td>
+                        <td class="cell-title">
+                                <a href="{{mail.get_absolute_url}}" id="details">{{mail.prioritas}}</a>
                             </td>
-                        <td class="cell-title" href="{{mail.get_absolute_url}}">
-                            <a href="{{mail.get_absolute_url}}">{{mail.assign_to}}</a>
-                        </td>
-                        <td class="cell-title" href="{{mail.get_absolute_url}}">
-                            <a href="{{mail.get_absolute_url}}">{{mail.title}}</a>
-                        </td>
-                        <td class="cell-title" href="{{mail.get_absolute_url}}">
-                                <a href="{{mail.get_absolute_url}}">{{mail.prioritas}}</a>
-                            </td>
-                        <td class="cell-icon hidden-phone hidden-tablet" href="{{mail.get_absolute_url}}">
+                        <td class="cell-icon hidden-phone hidden-tablet" id="details">
                             <i class="icon-paper-clip">{{mail.dokumen.name}}</i>
                         </td>
-                        <td class="cell-time align-right">
-                            {{mail.created}}
+                        <td class="cell-title align-center">
+                           <a>{{mail.created}}|{{mail.sent|date:'H:i'}}</a> 
                         </td>
                     </tr>
                 {% endfor %}
@@ -82,3 +47,4 @@
         </table>
     </div>
 </div>
+

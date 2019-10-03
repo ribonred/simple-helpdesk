@@ -1,33 +1,60 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="media stream">
-    <a href="#" class="media-avatar medium pull-left">
-        <img src="images/user.png">
-    </a>
-    <div class="media-body">
-        <div class="stream-headline">
-            <h5 class="stream-author">
-                FROM: {{mails.sender}}
-                <br>
-                <small>{{mails.created}}</small>
-            </h5>
-            <h5 class="stream-author">
-                    TO: {{mails.assign_to}}
-                    <br>
-                    <small>subject: {{mails.subject}}</small>
-                </h5>
-            <div class="stream-text">
-                 {{mails.content}}
+        <div class="mail-box-header">
+          <div class="pull-right tooltip-demo"> <a title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" href="mail_compose.html" data-original-title="Reply"><i class="fa fa-reply"></i> Reply</a> <a title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" href="#" data-original-title="Print email"><i class="fa fa-print"></i> </a> <a title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" href="mailbox.html" data-original-title="Move to trash"><i class="fa fa-trash-o"></i> </a> </div>
+          <h2> {{mails.title}} </h2>
+          <div class="mail-tools tooltip-demo ">
+            <h3> <span class="font-noraml">Subject: </span>{{mails.subject}}</h3>
+            <h5> <span class="pull-right font-noraml">{{mails.created}}</span> <span class="font-noraml">From: </span>{{mails.Sender}} </h5>
+          </div>
+        </div>
+        <div class="mail-box">
+          <div class="mail-body">
+            <p>Dengan hormat <br>
+              <br>
+              {{mails.content}}
+          </div>
+          <div class="mail-attachment">
+            <div class="attachment">
+                {% if mails.dokumen %}
+                <div class="file-box">
+                        <div class="file"> <a href="{{mails.dokumen.url}}"> <span class="corner"></span>
+                          <div class="icon"> <i class="fa fa-file"><iframe src="http://docs.google.com/gview?url={{mails.dokumen.url}}&embedded=true"
+                            style="width:600px; height:500px;" frameborder="0">
+                        </iframe></i> </div>
+                          <div class="file-name"> {{mails.dokumen}}<br>
+                            <small>{{mails.created}}</small> </div>
+                          </a> </div>
+                      </div>
+                {% endif %}
+              <!-- <div class="file-box">
+                <div class="file"> <a href=""> <span class="corner"></span>
+                  <div class="image"> <img src="" class="img-responsive" alt="image"> </div>
+                  <div class="file-name"> pool.jpg <br>
+                    <small>Added: Jan 6, 2014</small> </div>
+                  </a> </div>
+              </div> -->
+              {% if mails.Sender != user %}
+              <div class="clearfix"><div class="basic-form">
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                            <label class="mr-sm-2">Preference</label>
+                            {{form.tindakan}}
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="stream-attachment photo">
-                <div class="responsive-photo">
-                        <iframe width='1000' height='800' src={% static "images/my-cv.pdf" %} frameborder='0' allowfullscreen></iframe>
-                </div>
+          </div>
+              {% endif %}
+              
             </div>
-        </div><!--/.stream-headline-->
-    </div>
-</div> 
-
+          </div>
+          <div class="mail-body text-right tooltip-demo"> <a href="mail_compose.html" class="btn btn-sm btn-white"><i class="fa fa-reply"></i> Reply</a> <a href="mail_compose.html" class="btn btn-sm btn-white"><i class="fa fa-arrow-right"></i> Forward</a>
+            <button class="btn btn-sm btn-white" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-print"></i> Print</button>
+            <button class="btn btn-sm btn-white" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i> Remove</button>
+          </div>
+          <div class="clearfix"></div>
+        </div>
 {% endblock  %}
-    

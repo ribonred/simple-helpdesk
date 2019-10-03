@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'section',
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -111,17 +112,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"static")
+    
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-    
-]
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, "test", "gdstorage.json")
 ####################LOGIN/LOGOUT###############
 LOGIN_REDIRECT_URL = 'panel'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
+DJANGO_NOTIFICATIONS_CONFIG = { 'SOFT_DELETE': True, 'deleted':True}

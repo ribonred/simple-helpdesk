@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load customtag %}
+{% load static %}
+{% block content %}
+{% include "snippets/navbar.html" %}
+{% load notifications_tags %}
+<script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+{% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
 <div class="wrapper">
     <div class="container">
         <div class="row">
@@ -8,12 +13,13 @@
                 <div class="sidebar">
                     <ul class="widget widget-menu unstyled">
                         
-                        <li><a href="/"><i class="menu-icon icon-inbox"></i>Inbox <b class="label green pull-right">
-                                {{request|lol}} </b> </a></li>
+                        <li><a href="{% url 'panel' %}"><i class="menu-icon icon-inbox"></i>Inbox <b class="label green pull-right" id="elm">
+                                {% live_notify_badge %} </b> </a></li>
+                        <li><a href="{% url 'sent' %}" id="details"><i class="menu-icon icon-upload"></i>Sent </a></li>
                     </ul>
                     <!--/.widget-nav-->
                     <ul class="widget widget-menu unstyled">
-                        <li><a href="form.html"><i class="menu-icon icon-paste"></i>Forms </a></li>
+                        <li><a href="{% url 'buat' %}" id="details"><i class="menu-icon icon-pencil"></i>Compose </a></li>
                     </ul>
                     <!--/.widget-nav-->
                     <ul class="widget widget-menu unstyled">
@@ -33,7 +39,7 @@
             <!--/.span3-->
             <div class="span9">
                 <div class="content">
-                    {% include 'module/message.html' %}
+                  {% include "module/message.html" %}
                 </div>
                 <!--/.content-->
             </div>
@@ -41,5 +47,6 @@
         </div>
     </div>
     <!--/.container-->
-</div> 
+</div>
+
 {% endblock  %}
